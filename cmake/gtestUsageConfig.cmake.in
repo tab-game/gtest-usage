@@ -1,0 +1,17 @@
+# Module path
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/modules)
+
+# Depend packages
+@_gtestUsage_FIND_ZLIB@
+@_gtestUsage_FIND_PROTOBUF@
+@_gtestUsage_FIND_SSL@
+@_gtestUsage_FIND_CARES@
+@_gtestUsage_FIND_ABSL@
+@_gtestUsage_FIND_RE2@
+@_gtestUsage_FIND_OPENTELEMETRY@
+
+# Targets
+include(${CMAKE_CURRENT_LIST_DIR}/gtestUsageTargets.cmake)
+if(NOT CMAKE_CROSSCOMPILING)
+  include(${CMAKE_CURRENT_LIST_DIR}/gtestUsagePluginTargets.cmake)
+endif()
